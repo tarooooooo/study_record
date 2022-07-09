@@ -48,3 +48,4 @@ gem "sprockets", "<4"
 gem 'devise'
 gem 'seed-fu'
 gem 'pry-rails'
+gem "rack-cors"
