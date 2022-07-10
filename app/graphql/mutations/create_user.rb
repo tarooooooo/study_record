@@ -5,7 +5,6 @@ module Mutations
     field :user, ObjectTypes::User, null: false
 
     def resolve(params:)
-      binding.pry
       user = User.create!(params.to_h)
 
       { user: user }
