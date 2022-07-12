@@ -4,5 +4,6 @@ module Types
     field :update_user, mutation: Mutations::UpdateUser
     field :delete_user, mutation: Mutations::DeleteUser
     field :create_learning_goal, mutation: Mutations::CreateLearningGoal
+    field :delete_learning_goal, mutation: Mutations::DeleteLearningGoal
   end
 end

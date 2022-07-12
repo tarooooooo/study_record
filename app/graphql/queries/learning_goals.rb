@@ -1,6 +1,5 @@
 module Queries
   class LearningGoals < Queries::BaseQuery
-    # binding.pry
 
     type [ObjectTypes::LearningGoal], null: false
 
