@@ -4,8 +4,8 @@ module Mutations
 
     field :learning_goal, ObjectTypes::LearningGoal, null: false
     def resolve(params:)
+      puts params
       learning_goal = LearningGoal.create!(params.to_h)
-
       {learning_goal: learning_goal}
 
     rescue => e
