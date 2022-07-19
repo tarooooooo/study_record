@@ -11,5 +11,6 @@ module Types
     field :user, resolver: Queries::User
     field :learning_goals, resolver: Queries::LearningGoals
     field :learning_goal, resolver: Queries::LearningGoal
+    field :learning_record, resolver: Queries::LearningRecord
   end
 end

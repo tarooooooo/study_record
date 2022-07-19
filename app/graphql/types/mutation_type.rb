@@ -5,5 +5,6 @@ module Types
     field :delete_user, mutation: Mutations::DeleteUser
     field :create_learning_goal, mutation: Mutations::CreateLearningGoal
     field :delete_learning_goal, mutation: Mutations::DeleteLearningGoal
+    field :create_learning_record, mutation: Mutations::CreateLearningRecord
   end
 end
