@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_09_075955) do
+ActiveRecord::Schema.define(version: 2022_07_10_092652) do
+
+  create_table "learning_goals", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_learning_goals_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -19,4 +28,5 @@ ActiveRecord::Schema.define(version: 2022_07_09_075955) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "learning_goals", "users"
 end

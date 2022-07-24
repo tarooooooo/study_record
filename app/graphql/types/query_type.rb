@@ -9,5 +9,7 @@ module Types
 
     field :users, resolver: Queries::Users
     field :user, resolver: Queries::User
+    field :learning_goals, resolver: Queries::LearningGoals
+    field :learning_goal, resolver: Queries::LearningGoal
   end
 end
