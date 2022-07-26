@@ -5,8 +5,9 @@ export default gql`
     createLearningRecord(input: { params: $params } ){
       learningRecord {
        id
-       start_at
-       learning_goal_id
+       startAt
+       endingAt
+       learningGoalId
       }
     }
   }

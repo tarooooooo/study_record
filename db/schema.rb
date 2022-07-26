@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2022_07_19_143811) do
 
   create_table "learning_records", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "learning_goal_id", null: false
-    t.datetime "start_time", precision: 6, null: false
-    t.datetime "ending_time", precision: 6
+    t.datetime "start_at", precision: 6, null: false
+    t.datetime "ending_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["learning_goal_id"], name: "index_learning_records_on_learning_goal_id"

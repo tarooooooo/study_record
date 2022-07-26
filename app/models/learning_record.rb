@@ -1,4 +1,4 @@
 class LearningRecord < ApplicationRecord
   belongs_to :learning_goal
-  validates :start_time, presence: true
+  validates :start_at, presence: true
 end
