@@ -4,6 +4,7 @@ import {
   useDeleteLearningGoalMutation,
   useLearningGoalsQuery
 } from "../../graphql/generated";
+import { FormatLearningRecoadDateTime } from "../molecules/FormatLearningRecoadDateTime";
 import {LearningRecord} from "../molecules/LearningRecord";
 
 export const LearningGoals: FC = memo(() => {
@@ -47,7 +48,7 @@ export const LearningGoals: FC = memo(() => {
             <p>
               {learning_goal.learningRecords.map((learning_record) => (
                 <div key={learning_record.id}>
-                  <p>{learning_record.startAt} ~ {learning_record.endingAt}</p>
+                  <FormatLearningRecoadDateTime startAt={learning_record.startAt} endingAt={learning_record.endingAt} />
                 </div>
               ))}
             </p>
