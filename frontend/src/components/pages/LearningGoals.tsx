@@ -4,6 +4,7 @@ import {
   useDeleteLearningGoalMutation,
   useLearningGoalsQuery
 } from "../../graphql/generated";
+import {LearningRecord} from "../molecules/LearningRecord";
 
 export const LearningGoals: FC = memo(() => {
   const [deleteLearningGoal] = useDeleteLearningGoalMutation( {refetchQueries: ["learningGoals"]} )
@@ -43,6 +44,16 @@ export const LearningGoals: FC = memo(() => {
             <p>
               {learning_goal.body}
             </p>
+            <p>
+              {learning_goal.learningRecords.map((learning_record) => (
+                <div key={learning_record.id}>
+                  <p>{learning_record.startAt} ~ {learning_record.endingAt}</p>
+                </div>
+              ))}
+            </p>
+            <div>
+              <LearningRecord learningGoalId={learning_goal.id}/>
+            </div>
             <p>
               <button onClick={() => {
                 deleteLearningGoal( {variables: { id: learning_goal.id } })

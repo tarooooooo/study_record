@@ -10,5 +10,6 @@ module ObjectTypes
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     field :user, ObjectTypes::User, null: false
+    field :learning_records, [ObjectTypes::LearningRecord], null: false
   end
 end
