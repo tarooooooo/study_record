@@ -6,6 +6,11 @@ export default gql`
       id
       title
       body
+      learningRecords {
+        id
+        startAt
+        endingAt
+      }
     }
   }
 `;

@@ -1,15 +1,20 @@
 import {FC, memo, useState} from "react";
 import {
+  LearningGoal,
   useCreateLearningRecordMutation
 } from "../../graphql/generated";
 
-export const LearningRecord: FC = memo(() => {
+type LearningGoalType = {
+  learningGoalId: string;
+}
+
+export const LearningRecord: FC<LearningGoalType> = memo((props) => {
+  const { learningGoalId } = props;
   const [startAt, setStartAt] = useState("");
   const [endingAt, setEndingAt] = useState("");
   const [createLearningRecord] = useCreateLearningRecordMutation();
   return (
     <>
-      <h1>学習レコード追加</h1>
       <div>
         <div>
           <label htmlFor="startAt">開始時間</label>
@@ -22,7 +27,7 @@ export const LearningRecord: FC = memo(() => {
 
         <button
           onClick={() => {
-            createLearningRecord({ variables: { params: { startAt: startAt, endingAt: endingAt, learningGoalId: 2 } } });
+            createLearningRecord({ variables: { params: { startAt: startAt, endingAt: endingAt, learningGoalId: learningGoalId } } });
             setStartAt("");
             setEndingAt("");
           }}>

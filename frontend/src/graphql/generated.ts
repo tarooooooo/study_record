@@ -96,6 +96,7 @@ export type LearningGoal = {
   body?: Maybe<Scalars['String']>;
   createdAt: Scalars['ISO8601DateTime'];
   id: Scalars['ID'];
+  learningRecords: Array<LearningRecord>;
   title: Scalars['String'];
   updatedAt: Scalars['ISO8601DateTime'];
   user: User;
@@ -113,15 +114,15 @@ export type LearningRecord = {
   createdAt: Scalars['ISO8601DateTime'];
   endingAt?: Maybe<Scalars['ISO8601DateTime']>;
   id: Scalars['ID'];
+  learningGoal: Array<LearningGoal>;
   learningGoalId: Scalars['Int'];
-  learningGoals: Array<LearningGoal>;
   startAt: Scalars['ISO8601DateTime'];
   updatedAt: Scalars['ISO8601DateTime'];
 };
 
 export type LearningRecordAttributes = {
   endingAt: Scalars['ISO8601DateTime'];
-  learningGoalId: Scalars['Int'];
+  learningGoalId: Scalars['String'];
   startAt: Scalars['ISO8601DateTime'];
 };
 
@@ -264,7 +265,7 @@ export type UpdateUserMutation = { __typename?: 'Mutation', updateUser?: { __typ
 export type LearningGoalsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LearningGoalsQuery = { __typename?: 'Query', learningGoals: Array<{ __typename?: 'LearningGoal', id: string, title: string, body?: string | null }> };
+export type LearningGoalsQuery = { __typename?: 'Query', learningGoals: Array<{ __typename?: 'LearningGoal', id: string, title: string, body?: string | null, learningRecords: Array<{ __typename?: 'LearningRecord', id: string, startAt: any, endingAt?: any | null }> }> };
 
 export type UsersQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -492,6 +493,11 @@ export const LearningGoalsDocument = gql`
     id
     title
     body
+    learningRecords {
+      id
+      startAt
+      endingAt
+    }
   }
 }
     `;
